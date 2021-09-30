@@ -1,0 +1,89 @@
+[include]
+    path = ~/.gitconfig.local
+[color]
+	ui = auto
+[merge]
+    ff = no
+    commit = no
+[push]
+    default = tracking
+[status]
+    relativePaths = true
+    # Show untracked files? no/normal/all
+    showUntrackedFiles = normal
+[color "status"]
+    # Color for untracked files?
+    untracked = cyan
+[core]
+    # Default editor?
+	editor = vim
+	autocrlf = false
+    safecrlf = false
+    # Default .gitignore
+	excludesfile = ~/.gitignore
+[commit]
+    # Commit template
+	template = ~/.dotfiles/git/git_template.txt
+[alias]
+    # List all aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+    alias = "!git config -l | grep alias | cut -c 7-"
+
+	k = log --graph --abbrev-commit --pretty=oneline --decorate
+	ka = log --graph --abbrev-commit --pretty=oneline --decorate --all
+	ds = diff --stat
+    ss = status
+    s  = status --short
+    br = branch -vv
+
+    # Quick-stats
+    quick-stats = !~/.dotfiles/bin/git-quick-stats
+    promote = !~/.dotfiles/bin/git-promote
+    wtf     = !~/.dotfiles/bin/git-wtf
+    rank-contributors = !~/.dotfiles/bin/git-rank-contributors
+    count   = !git shortlog -sn
+
+    # Reset to before commit
+    undo = reset --soft HEAD^
+
+    # Stash all
+    stash-all = stash save --include-untracked
+
+    # Delete any local branch which has been deleted from the remote
+    prune = fetch --prune
+
+    delete-merged-branches = "!f() { git checkout --quiet master && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
+
+    # Smart diff
+    d = "!git diff --ignore-space-at-eol -b -w --ignore-blank-lines -- ':!**/package-lock.json' ':!**/yarn.lock'"
+
+    # Commit history
+    l = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all
+    
+    # What did I do today?
+    day = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=yesterday.11:59PM --author=\"`git config --get github.user`\"'"
+
+    # order files by number of commits, ascending
+    # Written by Corey Haines
+    # Scriptified by Gary Bernhardt
+    # Show churn for a time range:
+    # $ git churn --since='1 month ago'
+    churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
+
+    # show all deleted files in the repo
+    deleted = "!git log --diff-filter=D --summary | grep delete"
+    # hide any new changes
+    hide = update-index --assume-unchanged
+    # not hiding new changes
+    unhide = update-index --no-assume-unchanged
+    unhide-all = update-index --really-refresh
+    # hidden files
+    hidden = !git ls-files -v | grep \"^[a-z]\"
+    # ignored files
+    ignored = !git status -s --ignored | grep \"^!!\"
+
+    # create an empty commit
+    empty = commit --allow-empty
+
+[http]
+	sllCAinfo = /etc/ssl/certs/ca-certificates.crt

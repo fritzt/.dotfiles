@@ -1,0 +1,49 @@
+######################
+# Compiled source    #
+######################
+*.o
+*.mod
+
+######################
+# Logs               #
+######################
+*log*
+*.out
+
+######################
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+Thumbs.db
+.Trashes
+*~
+*.swp
+.AppleDouble
+.LSOverride
+Icon
+
+######################
+# Thumbnails         #
+######################
+._*
+
+######################
+# project-specific vim configurations
+######################
+.vimrc.local
+
+######################
+# typescript command garbage
+######################
+tscommand*.txt
+
+######################
+# nvm - the Node Version Manager
+######################
+.nvmrc
+
+######################
+# npm things         #
+######################
+npm-debug.log

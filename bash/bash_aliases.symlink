@@ -1,0 +1,90 @@
+alias ll='ls -alh'
+
+# cd aliases
+alias cd..='cd ..'
+alias cd~='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
+alias back='cd -'
+
+# some more aliases
+alias rmi='rm -i'
+alias df='df -h'
+alias echoPATH='echo -e ${PATH//:/\\n}'
+alias pingg='ping -c4 -w5 www.google.com'
+alias diffsumm='diff -arq'
+alias open='xdg-open'
+alias open.='open .'
+
+# get weather
+alias weather='curl wttr.in?MFqm'
+
+# for vpn
+alias vpn='/opt/cisco/anyconnect/bin/vpn'
+alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
+
+# clear space on root
+## Check which package will be deleted
+#dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d'
+## Delete packages
+#dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+
+## Delete archived logs
+#sudo /etc/cron.daily/logrotate
+#sudo find /var/log -type f -iname *.gz
+#sudo journalctl --rotate
+#sudo journalctl --vacuum-time=1s
+
+export nehalem=nehalem002.mit.edu
+export hex_=hex.mit.edu
+export odyssey=login.rc.fas.harvard.edu
+export cheyenne=cheyenne.ucar.edu
+# ssh to server
+lae () {
+    USER=fritzt
+    if [[ $# -eq 0 ]]; then
+        ssh -X -C $USER@$nehalem
+    else
+        ssh $@ $USER@$nehalem
+    fi
+}
+alias ale='lae'
+hex () {
+    USER=fritzt
+    if [[ $# -eq 0 ]]; then
+        ssh -X -C $USER@$hex_
+    else
+        ssh $@ $USER@$hex_
+    fi
+}
+
+odyssey () {
+    USER=tfritz
+    if [[ $# -eq 0 ]]; then
+        ssh -C -Y $USER@$odyssey
+    else
+        ssh $@ $USER@$odyssey
+    fi
+}
+alias ody='odyssey'
+
+cheyenne () {
+    USER=fritzt
+    if [[ $# -eq 0 ]]; then
+        ssh -X -l $USER $cheyenne
+    else
+        ssh $@ $USER $cheyenne
+    fi
+}
+alias che='cheyenne'
+
+# rsync through ssh
+alias rsyncssh='rsync -ravzP -e ssh'
+alias rsynchssh='rsyncssh'
+
+# net-tools
+alias myip='ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | grep -Eo "([0-9]*\.){3}[0-9]*" | grep -v "127.0.0.1"'
+
+# Slack
+alias slack='/usr/bin/slack &'
