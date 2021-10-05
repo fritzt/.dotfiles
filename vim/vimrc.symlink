@@ -41,6 +41,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Lightline plugin
 Plugin 'itchyny/lightline.vim'
 
+" Gitgutter: Adds a column to the left margin indicating lines changed in the active file since the last Git revision.
+Plugin 'airblade/vim-gitgutter'
+
 " ALE
 " ALE requires VIM --version > 8
 "Plugin 'w0rp/ale'
