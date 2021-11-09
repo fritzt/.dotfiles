@@ -24,6 +24,9 @@ alias weather='curl wttr.in?MFqm'
 alias vpn='/opt/cisco/anyconnect/bin/vpn'
 alias vpnui='/opt/cisco/anyconnect/bin/vpnui'
 
+# Modify recursively all files' timestamps (to prevent any X-day auto deletion)
+alias pushback='find . -type f -exec touch {} +'
+
 # clear space on root
 ## Check which package will be deleted
 #dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d'
