@@ -1,33 +1,33 @@
-set nocompatible              " be iMproved, required 
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize 
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin() 
-" alternatively, pass a path where Vundle should install plugins 
-"call vundle#begin('~/some/path/here')  
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required 
-Plugin 'VundleVim/Vundle.vim'  
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported. 
-" Keep Plugin commands between vundle#begin/end. 
-" plugin on GitHub repo 
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-endwise'
 "
 Plugin 'tpope/vim-eunuch'
 
-" plugin from http://vim-scripts.org/vim/scripts.html 
-" Plugin 'L9' 
-" Git plugin not hosted on GitHub 
-" Plugin 'git://git.wincent.com/command-t.git' 
-" git repos on your local machine (i.e. when working on your own plugin) 
-" Plugin 'file:///home/gmarik/path/to/plugin' 
-" The sparkup vim script is in a subdirectory of this repo called vim. 
-" Pass the path to set the runtimepath properly. Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} 
-" Install L9 and avoid a Naming conflict if you've already installed a 
-" different version somewhere else. " Plugin 'ascenator/L9', {'name': 'newL9'}  
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly. Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else. " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " NERDtree
 Plugin 'scrooloose/nerdtree'
@@ -39,7 +39,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Lightline plugin
-Plugin 'itchyny/lightline.vim'
+"Plugin 'itchyny/lightline.vim'
 
 " Gitgutter: Adds a column to the left margin indicating lines changed in the active file since the last Git revision.
 Plugin 'airblade/vim-gitgutter'
@@ -58,19 +58,24 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'ctrlp/ctrlp.vim'
 
-" All of your Plugins must be added before the following line 
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'vim-syntastic/syntastic'
+
+" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use: 
-"filetype plugin on 
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
-" Brief help 
-" :PluginList       - lists configured plugins 
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate 
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache 
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal 
-" 
-" see :h vundle for more details or wiki for FAQ 
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 set shell=/bin/bash
@@ -112,17 +117,17 @@ set number
 nmap <leader>num :set nu! <CR>:set rnu!<CR>
 set scrolloff=5         " 2 lines above/below cursor when scrolling
 
-" check file change every 4 seconds ('CursorHold') and reload the buffer upon 
-" detecting change 
-set autoread 
+" check file change every 4 seconds ('CursorHold') and reload the buffer upon
+" detecting change
+set autoread
 au CursorHold * checktime
 
-" When opening a new line and no filetype-specific indenting is 
+" When opening a new line and no filetype-specific indenting is
 " enabled, keep the same indent as the line you're currently on.
 set autoindent
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
+let $LANG='en'
 set langmenu=en
 
 " Turn on the WiLd menu
@@ -153,17 +158,17 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on (for regex)
 set magic
@@ -189,7 +194,7 @@ hi FoldColumn ctermbg=Black
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
@@ -257,10 +262,10 @@ set showbreak=↪\  " show ellipsis at breaking
 set nolist " nolist enables linebreak
 set listchars=tab:→\ ,eol:¬,trail:⋅
 " Hello this is a looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong line that stretches for a while
-set ruler " show row and column ruler information 
-set showmatch " highlight matching brace 
-set showcmd " show command in bottom bar 
-set showmode " show mode in status bar (insert/replace/...) 
+set ruler " show row and column ruler information
+set showmatch " highlight matching brace
+set showcmd " show command in bottom bar
+set showmode " show mode in status bar (insert/replace/...)
 set matchpairs+=<:> " specially for html
 set title " show title
 set mat=2 " how many tenths of a second to blink when matching brackets
@@ -304,8 +309,8 @@ map <leader>h :bprevious<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -320,7 +325,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -428,7 +433,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
@@ -458,14 +463,14 @@ au BufNewFile,BufRead *.mako set ft=mako
 
 au FileType python map <buffer> F :set foldmethod=indent<cr>
 
-au FileType python inoremap <buffer> $r return 
-au FileType python inoremap <buffer> $i import 
-au FileType python inoremap <buffer> $p print 
+au FileType python inoremap <buffer> $r return
+au FileType python inoremap <buffer> $i import
+au FileType python inoremap <buffer> $p print
 au FileType python inoremap <buffer> $f #--- <esc>a
-au FileType python map <buffer> <leader>1 /class 
-au FileType python map <buffer> <leader>2 /def 
-au FileType python map <buffer> <leader>C ?class 
-au FileType python map <buffer> <leader>D ?def 
+au FileType python map <buffer> <leader>1 /class
+au FileType python map <buffer> <leader>2 /def
+au FileType python map <buffer> <leader>C ?class
+au FileType python map <buffer> <leader>D ?def
 au FileType python set cindent
 au FileType python set cinkeys-=0#
 au FileType python set indentkeys-=0#
@@ -480,10 +485,10 @@ au FileType javascript setl nocindent
 au FileType javascript imap <c-t> $log();<esc>hi
 au FileType javascript imap <c-a> alert();<esc>hi
 
-au FileType javascript inoremap <buffer> $r return 
+au FileType javascript inoremap <buffer> $r return
 au FileType javascript inoremap <buffer> $f //--- PH<esc>FP2xi
 
-function! JavaScriptFold() 
+function! JavaScriptFold()
     setl foldmethod=syntax
     setl foldlevelstart=1
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
@@ -515,11 +520,11 @@ autocmd BufEnter *.G90 :setlocal filetype=fortran
 """"""""""""""""""""""""""""""
 " => Shell section
 """"""""""""""""""""""""""""""
-if exists('$TMUX') 
+if exists('$TMUX')
     if has('nvim')
         set termguicolors
     else
-        set term=screen-256color 
+        set term=screen-256color
     endif
 endif
 
@@ -563,12 +568,12 @@ let g:lightline = {
 "       \   'left': [ ['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'filepath', 'modified'] ],
 "       \   'right': [ ['percent', 'cwd'], ['lineinfo'], ['fileformat', 'fileencoding', 'filetype'] ]
 "       \ },
-"       \ 'component_function': { 'mode': 'LightLineMode', 'gitbranch': 'fugitive#head', 
-"       \   'filepath': 'LightLineFilepath', 'cwd': 'getcwd', 'fileformat': 'LightLineFileformat', 
-"       \   'filetype': 'LightLineFiletype', 'fileencoding': 'LightLineFileencoding', 
+"       \ 'component_function': { 'mode': 'LightLineMode', 'gitbranch': 'fugitive#head',
+"       \   'filepath': 'LightLineFilepath', 'cwd': 'getcwd', 'fileformat': 'LightLineFileformat',
+"       \   'filetype': 'LightLineFiletype', 'fileencoding': 'LightLineFileencoding',
 "       \   'lineinfo': 'LightLineLineinfo'}
 "       \ }
-    
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -600,7 +605,7 @@ autocmd! bufwritepost ~/.vim_runtime/my_configs.vim source ~/.vim_runtime/my_con
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Turn persistent undo on 
+" => Turn persistent undo on
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
@@ -620,7 +625,7 @@ cno $j e ./
 cno $c e <C-\>eCurrentFileDir("e")<cr>
 
 " $q is super useful when browsing on the command line
-" it deletes everything until the last slash 
+" it deletes everything until the last slash
 cno $q <C-\>eDeleteTillSlash()<cr>
 
 " Bash like keys for the command line
@@ -687,7 +692,7 @@ endif
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ack and put the cursor in the right position
-map <leader>g :Ack 
+map <leader>g :Ack
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
@@ -726,7 +731,7 @@ func! DeleteTillSlash()
         else
             let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
         endif
-    endif   
+    endif
 
     return g:cmd_edited
 endfunc
@@ -798,7 +803,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 let g:NERDTreeShowIgnoredStatus = 1
-    
+
 augroup nerdtree
     autocmd!
     autocmd FileType nerdtree setlocal nolist " turn off whitespace characters
@@ -863,9 +868,9 @@ let g:vim_markdown_new_list_item_indent = 2
 
 let g:clang_library_path='/usr/lib/x86_64-linux-gnu/'
 
-" CLANG FORMAT 
-" default settings 
-let g:clang_format#code_style = "llvm" 
+" CLANG FORMAT
+" default settings
+let g:clang_format#code_style = "llvm"
 let g:clang_format#style_options = {
             \ "AllowShortFunctionsOnASingleLine": "Empty",
             \ "AlwaysBreakTemplateDeclarations": "true",
@@ -878,6 +883,25 @@ let g:clang_format#style_options = {
             \ "ObjCBlockIndentWidth": 4,
             \ "TabWidth": 4}
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Airline customization
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:airline_section_b = '%{strftime("%a %d %h %Y %T %Z")}"'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": ["python", "java", "c", "cpp", "json", "markdown", "perl", "perl6", "ruby", "sh", "cmake", "html", "fortran"],
+    \ "passive_filetypes": [] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, windows
@@ -961,24 +985,24 @@ endfun
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-"Use TAB to complete when typing words, else inserts TABs as usual. 
-"Uses dictionary and source files to find matching words to complete. 
+"Use TAB to complete when typing words, else inserts TABs as usual.
+"Uses dictionary and source files to find matching words to complete.
 
-"See help completion for source, 
-"Note: usual completion is on <C-n> but more trouble to press all the time. 
-"Never type the same word twice and maybe learn a new spellings! 
-"Use the Linux dictionary when spelling is in doubt. 
-"Window users can copy the file to their machine. 
-function! Tab_Or_Complete() 
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w' 
-    return "\<C-N>" 
-  else 
-    return "\<Tab>" 
-  endif 
-endfunction 
+"See help completion for source,
+"Note: usual completion is on <C-n> but more trouble to press all the time.
+"Never type the same word twice and maybe learn a new spellings!
+"Use the Linux dictionary when spelling is in doubt.
+"Window users can copy the file to their machine.
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 set dictionary="/usr/dict/words"
-"set dictionary+=~\.vim\ftplugin\dict 
+"set dictionary+=~\.vim\ftplugin\dict
 
 " Keep search matches in the middle of the window and pulse the line when moving
 " to them.
